@@ -5,25 +5,10 @@
 # -*- coding:utf-8 -*-
 class Solution:
     def NumberOf1(self, n):
-        lists = []
         if n>=0:
-            while n !=0:
-                lists.append(n % 2)
-                n = n//2
-            return sum(lists)
+            return sum(list(map(lambda x:int(x),bin(n)[2:])))
         else:
-            n = -n
-            tmp = n
-            while n!=0:
-                lists.append(n%2)
-                n = n//2
-            length = len(lists)
-            n = (2<<(length+1))-tmp
-            lists = []
-            while n!=0:
-                lists.append(n%2)
-                n = n//2
-            return sum(lists)+1
+            return sum(list(map(lambda x:int(x),bin((2<<31)+n)[2:])))
 
 
 def test_function():
