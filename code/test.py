@@ -1,4 +1,4 @@
-a = 10
-b = a
-a = 20
-print(b)
+d = {'a':1,'b':4,'c':2}
+f = list(zip(d.values(),d.keys()))
+sorted(f)
+print(f)

@@ -13,13 +13,46 @@ class RandomListNode:
 class Solution:
     # 返回 RandomListNode
     def Clone(self, pHead):
-        p = RandomListNode(None)
-        q = p
-        while pHead!=None:
-            node = RandomListNode(pHead.val)
-            node.next = pHead.next
-            node.random = pHead.random
-            p.next = node
+        if not pHead:
+            return None
+        head = pHead
+        p = head
+        ##在原链表上插入复制节点
+        while head:
+            node = RandomListNode(head.label)
+            node.next = head.next
+            head.next = node
+            node.random = head.random
+            head = node.next
+        p = pHead
+        pclone = pHead.next
+        pcloneHead = pHead.next
+        #拆分链表
+        while p:
+            p.next = p.next.next
+            if pclone.next:
+                pclone.next = pclone.next.next
             p = p.next
-            pHead = pHead.next
-        return q.next
+            pclone = pclone.next
+        return pcloneHead
+def test_function():
+    solution = Solution()
+    pHead = RandomListNode(0)
+    p1 = RandomListNode(1)
+    p2 = RandomListNode(2)
+    p3 = RandomListNode(3)
+    pHead.next = p1
+    pHead.random = p2
+    p1.next = p2
+    p1.random = p3
+    p2.next = p3
+    p2.random = p1
+    p3.next = None
+    p3.random = p2
+    result = solution.Clone(pHead)
+    while result:
+        print(result.label)
+        result = result.next
+
+if __name__ == '__main__':
+    test_function()
