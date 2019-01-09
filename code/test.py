@@ -1,5 +1,4 @@
-import numpy as np
-a = ['a']
-a.pop()
-if a == []:
-    print('o')
+a = 10
+b = a
+a = 20
+print(b)
