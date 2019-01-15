@@ -1,6 +1,3 @@
-a = 'abcd'
-tmp = a[0]
-a = a[1:]
-a = a.append(tmp)
-print(a)
+a = [0,0,2,1,1]
 
+print(True&2)
