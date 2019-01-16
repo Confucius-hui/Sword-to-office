@@ -1,3 +1,4 @@
-a = [0,0,2,1,1]
-
-print(True&2)
+s = 'a.s'
+for i in s:
+    if i == '.':
+        print(i)
